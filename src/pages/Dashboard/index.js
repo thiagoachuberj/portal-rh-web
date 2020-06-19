@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Titulo } from './styles';
-import { Row, Column, Container } from '../../componentes/Grid';
+import { Row, Column, GridContainer } from '../../componentes/Grid';
 import Card from '../../componentes/Card';
 
 function Dashboard() {
@@ -14,7 +14,7 @@ function Dashboard() {
       </Row>
       <Row>
         <Column>
-          <Container>
+          <GridContainer>
             <Card />
             <Card />
             <Card />
@@ -22,7 +22,7 @@ function Dashboard() {
             <Card />
             <Card />
             <Card />
-          </Container>
+          </GridContainer>
         </Column>
       </Row>
     </>

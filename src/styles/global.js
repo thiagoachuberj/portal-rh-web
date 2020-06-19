@@ -8,6 +8,14 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  &:focus{
+    outline: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     background: #cccccc;
     -webkit-font-smoothing: antialiased;
@@ -15,6 +23,14 @@ export default createGlobalStyle`
 
   body, input, button {
     font: 16px Roboto, sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
   }
 
   button {

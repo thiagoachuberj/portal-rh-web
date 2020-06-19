@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const GridContainer = styled.div`
   max-width: 1360px;
   padding-left: 15px;
   padding-right: 15px;
@@ -16,7 +16,6 @@ export const Container = styled.div`
   &:after {
     clear: both;
   }
-  border: 1px solid #000000;
 `;
 
 export const Row = styled.div`
@@ -32,7 +31,6 @@ export const Row = styled.div`
   &:after {
     clear: both;
   }
-  border: 1px solid #cccccc;
 `;
 
 function getWidthGrid(value) {
@@ -49,7 +47,6 @@ export const Column = styled.div`
   min-height: 1px;
   box-sizing: border-box;
   width: 100%;
-  border: 1px solid yellow;
 
   @media only screen and (min-width: 768px) {
     ${({ mobile }) => mobile && getWidthGrid(mobile)}

@@ -1,10 +1,9 @@
 import React from 'react';
+import { FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 
-import { Container, HeaderContent, Links, LinkItem, Icones, Icon } from './styles';
-import { Row, Column } from '../Grid';
+import { Container, HeaderContent, Links, LinkItem, Icones } from './styles';
 
 import logoImg from '../../assets/logoacordoagora.png';
-import facebookIcon from '../../assets/facebook.jpg';
 
 function Header() {
   return (
@@ -13,9 +12,19 @@ function Header() {
         <img alt="Portal RH" src={logoImg} />
 
         <Links>
-          <LinkItem>Home</LinkItem>
-          <LinkItem>Profissionais</LinkItem>
+          <LinkItem href="/">Home</LinkItem>
+          <LinkItem href="/profissionais">Profissionais</LinkItem>
         </Links>
+
+        <Icones>
+          <button type="button">
+            <FaFacebookF />
+          </button>
+
+          <button type="button">
+            <FaWhatsapp />
+          </button>
+        </Icones>
       </HeaderContent>
     </Container>
   );
