@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import * as Yup from 'yup';
 
 import { Form, Input } from 'unform';
 import { Container, Content } from './styles';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logoacordoagora.png';
 
@@ -14,26 +15,15 @@ const schema = Yup.object().shape({
   password: Yup.string().required('A senha é obrigatória'),
 });
 
-/* function initialState() {
-  return { email: '', password: '' };
-} */
-
 export default function Login() {
-  // const [values, setValues] = useState(initialState);
   const { signIn } = useAuth();
 
-  function handleSubmit(data) {
-    signIn({ email: data.email, password: data.password });
-  }
+  const handleSubmit = useCallback(async(data) => {
+    //signIn(data.email, data.password);
+    await schema.validate(data, {abortEarly: false});
 
-  /* function handleOnChange(event) {
-    const { value, name } = event.target;
-
-    setValues({
-      ...values,
-      [name]: value,
-    });
-  } */
+    signIn({email: data.email, password: data.password});
+  }, [signIn]);
 
   return (
     <Container>
@@ -51,6 +41,10 @@ export default function Login() {
 
           <button type="submit">Entrar</button>
         </Form>
+
+        <Link to="/esqueci-senha">
+          Esqueci senha!
+        </Link>
       </Content>
     </Container>
   );

@@ -1,22 +1,29 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import { useAuth } from '../context/AuthContext';
-import { render } from '@testing-library/react';
+import { useAuth } from '../context/AuthProvider';
 
 function CustomRoute({ isPrivate, component: Component, ...rest }) {
-  const { isAutenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <Route
       {...rest}
-      render={() => {
-        return isPrivate === isAutenticated
-          ? (<Component />)
-          : (<Redirect to={{ pathname: isPrivate ? '/' : '/dashboard' }} />);
+      render={({ location }) => {
+        return isPrivate === isAuthenticated
+          ? (
+            <Component />
+          ) : (
+            <Redirect
+              to={{
+                pathname: isPrivate ? '/' : '/dashboard',
+                state: {from: location},
+              }}
+            />
+          );
       }}
     />
-  }
+  );
 }
 
 export default CustomRoute;
