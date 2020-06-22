@@ -12,7 +12,7 @@ function Header() {
         <img alt="Portal RH" src={logoImg} />
 
         <Links>
-          <LinkItem href="/">Home</LinkItem>
+          <LinkItem href="/">Dashboard</LinkItem>
           <LinkItem href="/profissionais">Profissionais</LinkItem>
         </Links>
 

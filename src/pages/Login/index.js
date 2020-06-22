@@ -18,12 +18,17 @@ const schema = Yup.object().shape({
 export default function Login() {
   const { signIn } = useAuth();
 
-  const handleSubmit = useCallback(async(data) => {
-    //signIn(data.email, data.password);
-    await schema.validate(data, {abortEarly: false});
+  const handleSubmit = useCallback(
+    async (data) => {
+      // signIn(data.email, data.password);
+      await schema.validate(data, {
+        abortEarly: false,
+      });
 
-    signIn({email: data.email, password: data.password});
-  }, [signIn]);
+      signIn({ email: data.email, password: data.password });
+    },
+    [signIn],
+  );
 
   return (
     <Container>
@@ -42,9 +47,7 @@ export default function Login() {
           <button type="submit">Entrar</button>
         </Form>
 
-        <Link to="/esqueci-senha">
-          Esqueci senha!
-        </Link>
+        <Link to="/esqueci-senha">Esqueci senha!</Link>
       </Content>
     </Container>
   );

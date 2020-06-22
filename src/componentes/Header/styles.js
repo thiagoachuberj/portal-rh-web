@@ -1,34 +1,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  background: #708090;
-  margin-bottom: 20px;
+  background: #2c3e50;
+  height: 55px;
+  margin-bottom: 10px;
 `;
 
 export const HeaderContent = styled.div`
-  height: 35px;
   display: flex;
 
   > img {
     width: 200px;
-    height: 35px;
+    height: 55px;
   }
 `;
 
 export const Links = styled.div`
-  display: flex;
-  font-size: 12px;
-  color: #ffffff;
   align-items: left;
   margin-left: 10px;
+  padding-top: 19px;
 `;
 
 export const LinkItem = styled.a`
   margin-right: 10px;
-  padding-top: 8px;
-  color: #ffffff;
-  font-size: 14px;
   text-decoration: none;
+  font-size: 14px;
+  color: #ffffff;
   cursor: pointer;
 
   &:hover {
@@ -38,7 +35,7 @@ export const LinkItem = styled.a`
 
 export const Icones = styled.div`
   margin-left: auto;
-  padding: 8px 10px 0 10px;
+  padding: 19px 10px 0 10px;
 
   button {
     background: transparent;

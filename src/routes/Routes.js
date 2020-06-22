@@ -10,14 +10,13 @@ function CustomRoute({ isPrivate, component: Component, ...rest }) {
     <Route
       {...rest}
       render={({ location }) => {
-        return isPrivate === isAuthenticated
-          ? (
-            <Component />
-          ) : (
+        return isPrivate === isAuthenticated ? (
+          <Component />
+        ) : (
             <Redirect
               to={{
                 pathname: isPrivate ? '/' : '/dashboard',
-                state: {from: location},
+                state: { from: location },
               }}
             />
           );

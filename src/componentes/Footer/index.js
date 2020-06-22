@@ -5,9 +5,7 @@ import { Container, FooterContent } from './styles';
 function Footer() {
   return (
     <Container>
-      <FooterContent>
-        Copyright - Portal RH Web
-      </FooterContent>
+      <FooterContent>Portal RH Web Corporation © 2020</FooterContent>
     </Container>
   );
 }

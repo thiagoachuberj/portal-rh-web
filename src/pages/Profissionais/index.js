@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GridContainer, Row, Column } from '../../componentes/Grid';
-// import { Container } from './styles';
+import { Container } from './styles';
 
 function Profissionais() {
   return (
@@ -16,12 +16,14 @@ function Profissionais() {
         <input type="email" name="email" />
         <input type="telefone" name="telefone" />
 
-        <br></br>
+        <br />
+        <br />
 
         <input type="text" name="endereco" />
         <input type="date" name="dataInicio" />
         <input type="date" name="dataFim" />
 
+        <br />
         <br />
 
         <select name="projeto">
@@ -39,8 +41,14 @@ function Profissionais() {
         </select>
 
         <br />
+        <br />
 
         <input type="file" name="curriculo" />
+
+        <br />
+        <br />
+
+        <button type="button">Salvar</button>
       </form>
     </GridContainer>
   );
