@@ -48,7 +48,7 @@ export const Column = styled.div`
   box-sizing: border-box;
   width: 100%;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (max-width: 768px) {
     ${({ mobile }) => mobile && getWidthGrid(mobile)}
   }
 

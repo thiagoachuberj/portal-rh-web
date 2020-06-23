@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100vh;
+  margin: 0 auto;
 
   h1 {
     font-size: 1.8em;
@@ -11,8 +12,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
 
   width: 100%;
@@ -24,19 +23,29 @@ export const Content = styled.div`
       border-radius: 4px;
       border: 2px solid #232129;
       padding: 10px;
-
-      & + input {
-        margin-left: 8px;
-        margin-top: 10px;
-      }
+      width: 100%;
     }
 
-    input[name="nomeCompleto"] {
-      width: 400px;
+    input [type='date'] {
+      padding: 7px;
+      border-radius: 4px;
+      border: 2px solid #232129;
+      width: 100%;
     }
-    input[name="email"] {
-      width: 300px;
+
+    select {
+      border-radius: 4px;
+      border: 2px solid #232129;
+      padding: 10px;
+      background: #ff0000;
+      width: 100%;
+    }
+
+   input [type='file'] {
+      padding: 7px;
+      border-radius: 4px;
+      border: 2px solid #232129;
+      width: 100%;
     }
   }
 `;
-
