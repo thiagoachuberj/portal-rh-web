@@ -7,7 +7,7 @@ export const GridContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
-  height: 100%;
+  /* height: 100%; */
   &:before,
   &:after {
     content: ' ';

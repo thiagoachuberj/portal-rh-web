@@ -5,7 +5,7 @@ import GlobalStyles from './styles/global';
 import Routes from './routes';
 
 import { AuthProvider } from './context/AuthProvider';
-import Footer from './componentes/Footer';
+/* import Footer from './componentes/Footer'; */
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <AuthProvider>
         <Routes />
       </AuthProvider>
-      <Footer />
+      {/* <Footer /> */}
       <GlobalStyles />
     </BrowserRouter>
   );
