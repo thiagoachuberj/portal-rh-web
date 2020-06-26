@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  max-width: 960px;
+  margin: auto;
+`;
+
+export const Content = styled.div`
+  display: flex;
 `;
 
 export const Titulo = styled.h1`

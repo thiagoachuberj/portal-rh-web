@@ -38,7 +38,8 @@ function AuthProvider({ children }) {
   }, []);
 
   const signOut = useCallback(() => {
-    //localStorage.removeItem('token');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setAuthData({});
   }, []);
 

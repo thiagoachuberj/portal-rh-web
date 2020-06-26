@@ -1,35 +1,42 @@
 import React from 'react';
+import { Form } from '@unform/web';
 
 import { GridContainer, Row, Column } from '../../componentes/Grid';
+import Input from '../../componentes/Input';
 import { Container, Content, InputText, InputDate, Select, InputEmail, InputTelefone,
   InputFile, InputNumero, BotaoEnviar } from './styles';
 
 function Profissionais() {
+
+  function handleSubmit(data) {
+    console.log(data);
+  }
+
   return (
     <Container>
       <h1>Cadastro de profissionais</h1>
 
       <GridContainer>
         <Content>
-            <form>
+            <Form onSubmit={handleSubmit}>
               <Row style={{marginTop: '15px'}}>
                 <Column mobile="12" tablet="6" desktop="6">
-                  <InputText name="nomeCompleto" placeholder="Nome Completo" />
+                  <Input name="nomeCompleto" placeholder="Nome Completo" />
                 </Column>
                 <Column mobile="12" tablet="4" desktop="4">
-                  <InputEmail name="email" placeholder="E-mail" />
+                  <Input name="email" placeholder="E-mail" />
                 </Column>
                 <Column mobile="12" tablet="2" desktop="2">
-                  <InputText name="cep" placeholder="CEP" />
+                  <Input name="cep" placeholder="CEP" />
                 </Column>
               </Row>
 
               <Row style={{marginTop: '15px'}}>
                 <Column mobile="12" tablet="6" desktop="6">
-                  <InputText name="endereco" placeholder="Endereço" />
+                  <Input name="endereco" placeholder="Endereço" />
                 </Column>
                 <Column mobile="12" tablet="3" desktop="3">
-                  <InputText name="complemento" placeholder="Complemento" />
+                  <Input name="complemento" placeholder="Complemento" />
                 </Column>
                 <Column mobile="12" tablet="3" desktop="3">
                   <Select name="estado">
@@ -46,16 +53,16 @@ function Profissionais() {
                   </Select>
                 </Column>
                 <Column mobile="12" tablet="4" desktop="4">
-                  <InputTelefone pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" name="telefone" placeholder="Telefone" />
+                  <Input pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" name="telefone" placeholder="Telefone" />
                 </Column>
                 <Column mobile="12" tablet="4" desktop="4">
-                  <InputDate name="dataInicio" placeholder="Data Início" />
+                  <Input name="dataInicio" placeholder="Data Início" />
                 </Column>
               </Row>
 
               <Row style={{marginTop: '15px'}}>
                 <Column mobile="12" tablet="4" desktop="4">
-                  <InputDate name="dataFim" />
+                  <Input name="dataFim" />
                 </Column>
                 <Column mobile="12" tablet="4" desktop="4">
                   <Select name="projeto">
@@ -87,7 +94,7 @@ function Profissionais() {
 
               <Row>
                 <Column>
-                  <InputFile name="curriculo" />
+                  <Input type="file" name="curriculo" />
                 </Column>
               </Row>
 
@@ -96,7 +103,7 @@ function Profissionais() {
                   <BotaoEnviar>Salvar</BotaoEnviar>
                 </Column>
               </Row>
-            </form>
+            </Form>
         </Content>
       </GridContainer>
     </Container>

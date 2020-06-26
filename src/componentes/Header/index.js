@@ -1,20 +1,28 @@
 import React from 'react';
-import { FaFacebookF, FaWhatsapp } from 'react-icons/fa';
 
-import { Container, HeaderContent, Links, LinkItem, Icones } from './styles';
+import { useAuth } from '../../context/AuthProvider';
+import { FaFacebookF, FaWhatsapp, FaPowerOff } from 'react-icons/fa';
+
+import { Container, HeaderContent, NavBar, LinkItem, Icones, Logout } from './styles';
 
 import logoImg from '../../assets/logoacordoagora.png';
 
 function Header() {
+  const { isAuthenticated, signOut } = useAuth();
+
+  function handleSignOut() {
+    signOut();
+  }
+
   return (
     <Container>
       <HeaderContent>
         <img alt="Portal RH" src={logoImg} />
 
-        <Links>
+        <NavBar>
           <LinkItem href="/">Dashboard</LinkItem>
           <LinkItem href="/profissionais">Profissionais</LinkItem>
-        </Links>
+        </NavBar>
 
         <Icones>
           <button type="button">
@@ -26,6 +34,12 @@ function Header() {
           </button>
         </Icones>
       </HeaderContent>
+      {isAuthenticated && <Logout>
+        <button type="button" alt="Sair" onClick={handleSignOut}>
+          <FaPowerOff alt="Sair" />
+          <span>Sair</span>
+        </button>
+      </Logout> }
     </Container>
   );
 }

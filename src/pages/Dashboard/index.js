@@ -1,30 +1,28 @@
 import React from 'react';
 
-import { Container, Titulo } from './styles';
 import { Row, Column, GridContainer } from '../../componentes/Grid';
+import { Container, Titulo, Content } from './styles';
 import Card from '../../componentes/Card';
 
 function Dashboard() {
   return (
     <Container>
-      <Row>
-        <Column>
-          <Titulo>Dashboard</Titulo>
-        </Column>
-      </Row>
-      <Row>
-        <Column>
-          <GridContainer>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </GridContainer>
-        </Column>
-      </Row>
+      <Titulo>Dashboard</Titulo>
+      <Content>
+        <Row>
+          <Column>
+            <GridContainer>
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </GridContainer>
+          </Column>
+        </Row>
+      </Content>
     </Container>
   );
 }

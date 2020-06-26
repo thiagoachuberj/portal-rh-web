@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100%;
-  background: #c1cdcd;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +20,7 @@ export const Content = styled.div`
   form {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin: 40px 0;
 
     span {
       margin: 0 0 10px;
@@ -35,7 +34,7 @@ export const Content = styled.div`
       border-radius: 4px;
       height: 44px;
       padding: 0 15px;
-      color: #fff;
+      color: #ffffff;
       margin: 0 0 10px;
 
       %::placeholder {
@@ -46,28 +45,30 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #7a67ee;
+      background: #2c3e50;
       font-weight: bold;
-      color: #fff;
+      color: #ffffff;
       border: 0;
       border-radius: 4px;
       font-size: 16px;
-      transition: background 0.2s;
+      transition: background-color 0.2s;
 
       &:hover {
-        color: rgba(255, 255, 255, 0.7);
+        opacity: 0.8;
       }
     }
+  }
 
-    a {
-      color: #ffffff;
-      margin-top: 15px;
-      font-size: 16px;
+  a {
+    color: #2c3e50;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 2s;
+
+    &:hover {
       opacity: 0.8;
-
-      &:hover {
-        opacity: 1;
-      }
+      color: #2c3e50;
     }
   }
 `;

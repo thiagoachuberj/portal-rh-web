@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 230px;
+  max-width: 200px;
   background: #999999;
   border: 1px solid #000000;
   padding: 10px;
@@ -12,9 +12,10 @@ export const Container = styled.div`
 `;
 
 export const Titulo = styled.h1`
-  font-size: 16px;
+  font-size: 14px;
   color: #020303;
   margin-bottom: 8px;
+  font-weight: bold;
 `;
 
 export const Detalhe = styled.h3`
