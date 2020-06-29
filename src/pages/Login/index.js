@@ -1,30 +1,47 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
 
 import * as Yup from 'yup';
 import Input from '../../componentes/Input';
+import Button from '../../componentes/Button';
+import getValidationErrors from '../../util/getValidationErrors';
+
 import { Container, Content } from './styles';
 import { useAuth } from '../../context/AuthProvider';
-import { Link } from 'react-router-dom';
 
 import logo from '../../assets/logoacordoagora.png';
 
 export default function Login() {
   const { signIn } = useAuth();
-
-  const schema = Yup.object().shape({
-    email: Yup.string()
-      .email('Insira um e-mail válido')
-      .required('O e-mail é obrigatório'),
-    password: Yup.string().required('A senha é obrigatória'),
-  });
+  const formRef = useRef(null);
 
   const handleSubmit = useCallback(
     async (data) => {
-      // signIn(data.email, data.password);
-      await schema.validate(data, {abortEarly: false,});
+      try {
+        formRef.current.setErrors({});
 
-      // signIn({ email: data.email, password: data.password });
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .email('Insira um e-mail válido')
+            .required('O e-mail é obrigatório'),
+          password: Yup.string().required('A senha é obrigatória'),
+        });
+
+        // signIn(data.email, data.password);
+        await schema.validate(data, {
+          abortEarly: false,
+        });
+
+        // signIn({ email: data.email, password: data.password });
+      } catch (err) {
+        const errors = getValidationErrors(err);
+        console.log(JSON.stringify(errors));
+
+        if (formRef && formRef.current) {
+          formRef.current.setErrors(errors);
+        }
+      }
     },
     [signIn],
   );
@@ -34,7 +51,7 @@ export default function Login() {
       <Content>
         <img src={logo} alt="Portal RH" />
 
-        <Form schema={schema} onSubmit={handleSubmit}>
+        <Form ref={formRef} onSubmit={handleSubmit}>
           <Input type="email" name="email" placeholder="Digite seu E-mail" />
 
           <Input
@@ -43,7 +60,7 @@ export default function Login() {
             placeholder="Digite sua senha"
           />
 
-          <button type="submit">Entrar</button>
+          <Button type="submit">Entrar</Button>
         </Form>
 
         <Link to="/esqueci-senha">Esqueci senha!</Link>
