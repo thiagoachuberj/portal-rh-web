@@ -33,10 +33,9 @@ export default function Login() {
           abortEarly: false,
         });
 
-        // signIn({ email: data.email, password: data.password });
+        signIn({ email: data.email, password: data.password });
       } catch (err) {
         const errors = getValidationErrors(err);
-        console.log(JSON.stringify(errors));
 
         if (formRef && formRef.current) {
           formRef.current.setErrors(errors);

@@ -16,16 +16,16 @@ export const Container = styled.div.attrs((props) => ({
   align-items: center;
 
   ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: #c53030;
+    `}
+
+  ${(props) =>
     props.isFocused &&
     css`
       color: #2c3e50;
       border-color: #2c3e50;
-    `}
-
-  ${(props) =>
-    props.isErrored &&
-    css`
-      border-color: #c53030;
     `}
 
   & + div {
@@ -54,5 +54,14 @@ export const Error = styled(Tooltip)`
 
   svg {
     margin: 0;
+  }
+
+  span {
+    background: #c53030;
+    color: #ffffff;
+
+    &::before {
+      border-color: #c53030 transparent;
+    }
   }
 `;

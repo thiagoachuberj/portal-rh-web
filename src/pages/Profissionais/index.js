@@ -1,26 +1,51 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
+import * as Yup from 'yup';
 
+import getValidationErrors from '../../util/getValidationErrors';
 import { GridContainer, Row, Column } from '../../componentes/Grid';
 import Input from '../../componentes/Input';
-import {
-  Container,
-  Content,
-  InputText,
-  InputDate,
-  Select,
-  InputEmail,
-  InputTelefone,
-  InputFile,
-  InputNumero,
-  BotaoEnviar
-} from './styles';
+import { Container, Content, Select, InputNumero, BotaoEnviar } from './styles';
 
 function Profissionais() {
-
-  function handleSubmit(data) {
+  const formRef = useRef(null);
+  const handleSubmit = useCallback(async (data) => {
     console.log(data);
-  }
+    try {
+      formRef.current.setErrors({});
+
+      const schema = Yup.object().shape({
+        nomeCompleto: Yup.string().required('Nome é obrigatório'),
+        email: Yup.string()
+          .email('Insira um email válido')
+          .required('Nome é obrigatório'),
+        cep: Yup.string().required('CEP é obrigatório'),
+        endereco: Yup.string().required('Endereço é obrigatório'),
+        complemento: Yup.string().required('Complemento é obrigatório'),
+        estado: Yup.string().required('Estado é obrigatório'),
+        bairro: Yup.string().required('Bairro é obrigatório'),
+        telefone: Yup.string().required('Telefone é obrigatório'),
+        dataInicio: Yup.string().required('Data Início é obrigatório'),
+        projeto: Yup.string().required('Projeto é obrigatória'),
+        area: Yup.string().required('Área é obrigatório'),
+        salario: Yup.string().required('Salário é obrigatório'),
+        role: Yup.string().required('Tipo de profissinal é obrigatório'),
+      });
+
+      // signIn(data.email, data.password);
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      // signIn({ email: data.email, password: data.password });
+    } catch (err) {
+      const errors = getValidationErrors(err);
+
+      if (formRef && formRef.current) {
+        formRef.current.setErrors(errors);
+      }
+    }
+  }, []);
 
   return (
     <Container>
@@ -28,7 +53,7 @@ function Profissionais() {
 
       <GridContainer>
         <Content>
-          <Form onSubmit={handleSubmit}>
+          <Form ref={formRef} onSubmit={handleSubmit}>
             <Row style={{ marginTop: '15px' }}>
               <Column mobile="12" tablet="6" desktop="6">
                 <Input name="nomeCompleto" placeholder="Nome Completo" />
@@ -70,13 +95,17 @@ function Profissionais() {
                 />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
-                <Input name="dataInicio" placeholder="Data Início" />
+                <Input
+                  type="date"
+                  name="dataInicio"
+                  placeholder="Data Início"
+                />
               </Column>
             </Row>
 
             <Row style={{ marginTop: '15px' }}>
               <Column mobile="12" tablet="4" desktop="4">
-                <Input name="dataFim" />
+                <Input type="date" name="dataFim" placeholder="Data Início" />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
                 <Select name="projeto">

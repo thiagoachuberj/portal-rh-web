@@ -20,7 +20,7 @@ function Input({ name, ...rest }) {
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
-  });
+  }, []);
 
   const handleInputBlur = useCallback(() => {
     setIsFocused(false);
@@ -36,7 +36,7 @@ function Input({ name, ...rest }) {
         {...rest}
       />
       {error && (
-        <Error>
+        <Error title={error}>
           <FiAlertCircle color="#c53030" size={20} />
         </Error>
       )}

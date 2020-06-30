@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Container } from './styles';
 
-function Tooltip({ title, children }) {
+function Tooltip({ title, className, children }) {
   return (
-    <Container>
+    <Container className={className}>
       {children}
       <span>{title}</span>
     </Container>

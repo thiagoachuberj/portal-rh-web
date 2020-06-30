@@ -40,7 +40,7 @@ export const Content = styled.div`
       width: 100%;
     } */
 
-   /* input [type='file'] {
+    /* input [type='file'] {
       padding: 7px;
       border-radius: 4px;
       border: 2px solid #232129;
@@ -50,7 +50,7 @@ export const Content = styled.div`
 `;
 
 export const InputDate = styled.input.attrs({
-  type: 'date'
+  type: 'date',
 })`
   padding: 7px;
   border-radius: 4px;
@@ -59,7 +59,7 @@ export const InputDate = styled.input.attrs({
 `;
 
 export const InputText = styled.input.attrs({
-  type: 'text'
+  type: 'text',
 })`
   border-radius: 4px;
   border: 2px solid #232129;
@@ -68,7 +68,7 @@ export const InputText = styled.input.attrs({
 `;
 
 export const InputEmail = styled.input.attrs({
-  type: 'email'
+  type: 'email',
 })`
   border-radius: 4px;
   border: 2px solid #232129;
@@ -92,7 +92,7 @@ export const Select = styled.select`
 `;
 
 export const InputTelefone = styled.input.attrs({
-  type: 'tel'
+  type: 'tel',
 })`
   border-radius: 4px;
   border: 2px solid #232129;
@@ -101,7 +101,7 @@ export const InputTelefone = styled.input.attrs({
 `;
 
 export const InputNumero = styled.input.attrs({
-  type: 'number'
+  type: 'number',
 })`
   border-radius: 4px;
   border: 2px solid #232129;
@@ -110,7 +110,7 @@ export const InputNumero = styled.input.attrs({
 `;
 
 export const InputFile = styled.input.attrs({
-  type: 'file'
+  type: 'file',
 })`
   padding: 7px;
   border-radius: 4px;
@@ -130,7 +130,7 @@ export const BotaoEnviar = styled.button`
   font-weight: bold;
   font-size: 17px;
 
-  &:hover{
+  &:hover {
     opacity: 0.8;
     transition: 1s;
   }
