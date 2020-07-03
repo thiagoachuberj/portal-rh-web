@@ -17,6 +17,10 @@ export const Content = styled.div`
   width: 100%;
   max-width: 960px;
 
+  .acertoInput {
+    width: 100%;
+  }
+
   form {
     /* input {
       border-radius: 4px;

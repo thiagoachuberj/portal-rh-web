@@ -5,7 +5,8 @@ import * as Yup from 'yup';
 import getValidationErrors from '../../util/getValidationErrors';
 import { GridContainer, Row, Column } from '../../componentes/Grid';
 import Input from '../../componentes/Input';
-import { Container, Content, Select, InputNumero, BotaoEnviar } from './styles';
+import Select from '../../componentes/Select';
+import { Container, Content, BotaoEnviar } from './styles';
 
 function Profissionais() {
   const formRef = useRef(null);
@@ -62,7 +63,12 @@ function Profissionais() {
                 <Input name="email" placeholder="E-mail" />
               </Column>
               <Column mobile="12" tablet="2" desktop="2">
-                <Input name="cep" placeholder="CEP" />
+                <Input
+                  className="acertoInput"
+                  type="number"
+                  name="cep"
+                  placeholder="CEP"
+                />
               </Column>
             </Row>
 
@@ -126,7 +132,11 @@ function Profissionais() {
                 </Select>
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
-                <InputNumero name="salario" placeholder="Salário (R$)" />
+                <Input
+                  name="salario"
+                  type="number"
+                  placeholder="Salário (R$)"
+                />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
                 <Select name="role">
