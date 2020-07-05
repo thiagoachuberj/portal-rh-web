@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import getValidationErrors from '../../util/getValidationErrors';
 import { GridContainer, Row, Column } from '../../componentes/Grid';
 import Input from '../../componentes/Input';
-import Select from '../../componentes/Select';
+import AsyncSelect from '../../componentes/Select';
 import { Container, Content, BotaoEnviar } from './styles';
 
 function Profissionais() {
@@ -80,18 +80,16 @@ function Profissionais() {
                 <Input name="complemento" placeholder="Complemento" />
               </Column>
               <Column mobile="12" tablet="3" desktop="3">
-                <Select name="estado">
+                <AsyncSelect name="estado">
                   <option value="0">Selecione</option>
                   <option value="1">Estados2</option>
-                </Select>
+                </AsyncSelect>
               </Column>
             </Row>
 
             <Row style={{ marginTop: '15px' }}>
               <Column mobile="12" tablet="4" desktop="4">
-                <Select name="bairro">
-                  <option value="0">Bairro</option>
-                </Select>
+                <AsyncSelect name="bairro" />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
                 <Input
@@ -114,22 +112,22 @@ function Profissionais() {
                 <Input type="date" name="dataFim" placeholder="Data Início" />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
-                <Select name="projeto">
+                <AsyncSelect name="projeto">
                   <option value="0">Selecionar</option>
-                </Select>
+                </AsyncSelect>
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
-                <Select name="area">
+                <AsyncSelect name="area">
                   <option value="0">Selecionar</option>
-                </Select>
+                </AsyncSelect>
               </Column>
             </Row>
 
             <Row style={{ marginTop: '15px' }}>
               <Column mobile="12" tablet="4" desktop="4">
-                <Select name="cargo">
+                <AsyncSelect name="cargo">
                   <option value="0">Selecionar</option>
-                </Select>
+                </AsyncSelect>
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
                 <Input
@@ -139,9 +137,9 @@ function Profissionais() {
                 />
               </Column>
               <Column mobile="12" tablet="4" desktop="4">
-                <Select name="role">
+                <AsyncSelect name="role">
                   <option value="0">Selecionar</option>
-                </Select>
+                </AsyncSelect>
               </Column>
             </Row>
 
